@@ -1,4 +1,4 @@
-package com.restApi.restApi;
+package com.restApi.restApi.model;
 
 public class Greeting {
 
