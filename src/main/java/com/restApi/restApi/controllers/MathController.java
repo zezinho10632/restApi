@@ -12,7 +12,20 @@ public class MathController {
 
     @RequestMapping(value="/sum/{numberOne}/{numberTwo}", method= RequestMethod.GET)
     public Double sum(@PathVariable("numberOne") String numberOne,
-                      @PathVariable("numberTwo") String numberTwo) {
-        return 1d;
+                      @PathVariable("numberTwo") String numberTwo) throws Exception {
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo)) throw new IllegalArgumentException();
+        return convertToDouble(numberOne) + convertToDouble(numberTwo);
+    }
+
+    private Double convertToDouble(String strNumber) {
+        if (strNumber == null) return 0d;
+        String number = strNumber.replaceAll(",", ".");// Moeda Americana x Brasileira
+        return Double.parseDouble(number);
+    }
+
+    private boolean isNumeric(String strnumber) {
+        if (strnumber == null || strnumber.isEmpty()) return false;
+        String number = strnumber.replace("," , "." ); // R$ 5,00
+        return  number.matches("[-+]?[0-9]*\\.?[0-9]+");
     }
 }
