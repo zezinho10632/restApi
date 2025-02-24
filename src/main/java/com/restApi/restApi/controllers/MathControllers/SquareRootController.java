@@ -1,6 +1,6 @@
 package com.restApi.restApi.controllers.MathControllers;
 
-import com.restApi.restApi.exception.UnsupportedMathOperationException;
+import com.restApi.restApi.math.SimpleMath;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +12,6 @@ public class SquareRootController {
 
     @RequestMapping(value="/{number}", method= RequestMethod.GET)
     public Double sqrt(@PathVariable("number") String number) throws Exception {
-        return MathUtils.sqrt(number);
+        return SimpleMath.sqrt(number);
     }
 }
