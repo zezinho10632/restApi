@@ -1,4 +1,4 @@
-package com.restApi.restApi.controllers;
+package com.restApi.restApi.controllers.GreetingControllers;
 
 import com.restApi.restApi.model.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
